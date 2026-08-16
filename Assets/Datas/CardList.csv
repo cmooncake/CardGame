@@ -1,0 +1,8 @@
+#,编号,卡名,故事,攻击力,生命值
+monster,1,Red Dragon,,80,100
+monster,2,Holy Knight,,40,40
+monster,3,Death Wizard,,66,66
+monster,4,Corruption,,70,30
+#,编号,卡名,,效果,
+spell,5,Fire Ball,,Deals 20 damage,
+spell,6,Heal,,Restore 40 HP,
