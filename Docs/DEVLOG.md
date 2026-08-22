@@ -1,35 +1,50 @@
-# Unity Card Game Devlog
-
-## 2026-08-22
+## 2026-08-23
 
 ### 今日唯一目标
 
-完成 BootApp → Lobby 的统一流程切换，并提交现有 GameFlow 框架。
-
-### 开始前复习
-
-- AppRoot 是组合根，负责创建和装配全局服务。
-- SceneLoader 是 MonoBehaviour，通过 GetComponent 获取。
-- GameFlowManager 是普通 C# 类，通过构造函数创建。
-- ChangeState 使用 guard clause 阻止无效状态切换。
+完成 Lobby 与 DeckEditor 的双向场景切换。
 
 ### 今日完成
 
-- [ ] 建立 DEVLOG
-- [ ] 提交现有 GameFlow 代码
-- [ ] 创建 Lobby 场景
-- [ ] 配置 Lobby 状态映射
-- [ ] 完成运行验证
-- [ ] 检查 Unity Console
+- [x] 创建并配置 Lobby 场景
+- [x] 实现 BootApp 自动进入 Lobby
+- [x] 创建可复用的 GameFlowButton
+- [x] 创建导航按钮 Prefab
+- [x] 实现 Lobby → BuildDeck
+- [x] 实现 BuildDeck → Lobby
+- [x] 完成运行验证
+- [x] 检查 Unity Console
+- [x] 提交并推送 Git
+
+### 运行验证
+
+验证链路：
+
+BootApp → Lobby → BuildDeck → Lobby
+
+验证结果：
+
+- CurrentState 与活动场景一致
+- AppRoot 实例数量始终为 1
+- AppRoot 位于 DontDestroyOnLoad
+- 两个按钮的 OnClick 绑定有效
+- 没有新增场景框架错误
 
 ### 遇到的问题
 
-待记录。
+- CardStore.cs:26 仍有 NullReferenceException
+- 对 git status --short 的两列含义掌握不牢
+- Prefab 最初误命名为 GameFlowButtom
 
 ### 今日复盘
 
-待完成后填写。
+- UI 只负责表达导航意图
+- GameFlowManager 负责验证和更新流程状态
+- SceneLoader 负责调用 Unity 场景加载 API
+- SerializeField private 同时满足 Inspector 配置和代码封装
+- Prefab 保存共性，实例 Override 保存场景差异
+- Git 状态第一列表示暂存区，第二列表示工作区
 
 ### 下一步
 
-待完成后填写。
+分析并拆分 CardStore 的卡牌数据加载、玩家数据与商店职责。
