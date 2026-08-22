@@ -20,4 +20,9 @@ public class AppRoot : MonoBehaviour
         GameFlow = new GameFlowManager(SceneLoader);
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Start()
+    {
+        GameFlow.ChangeState(GameFlowState.Lobby);
+    }
 }

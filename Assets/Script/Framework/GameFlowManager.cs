@@ -39,6 +39,9 @@ public class GameFlowManager
             case GameFlowState.DeckEditor:
                 return "BuildDeck";
 
+            case GameFlowState.Lobby:
+                return "Lobby";
+
             default:
                 return null;
         }
